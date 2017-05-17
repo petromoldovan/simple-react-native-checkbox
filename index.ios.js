@@ -31,11 +31,20 @@ export default class checkbox extends Component {
 
           <Checkbox
               actionCallback={alert}
+              label="good day"
+              labelStyle={{fontWeight: "900"}}
           />
       </View>
     );
   }
 }
+
+//label first
+//{flexDirection: "row-reverse", justifyContent: "flex-end" }
+
+
+//label above and center
+//{flexDirection: "column-reverse", alignItems: "center" }
 
 const styles = StyleSheet.create({
   container: {

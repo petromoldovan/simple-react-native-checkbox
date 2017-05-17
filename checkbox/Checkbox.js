@@ -34,42 +34,54 @@ class Checkbox extends React.Component {
     }
 
     renderLabel() {
-        const {label} = this.props;
+        const {label, labelStyle} = this.props;
 
         if (!label) return null;
 
+        const labelStyleApplied = new Object.assign({}, styles.labelStyleBase, labelStyle);
+
         return (
             <View>
-                <Text></Text>
+                <Text style={labelStyleApplied}>{label}</Text>
             </View>
         )
     }
 
     render() {
         const {isChecked} = this.state;
-        const {unselectedStyle, selectedStyle} = this.props;
+        const {unselectedStyle, selectedStyle, containerStyle} = this.props;
 
         const unselectedStyleApplied = new Object.assign({}, styles.unselected, unselectedStyle);
         const selectedStyleApplied = new Object.assign({}, styles.selected, selectedStyle);
+        const containerStyleApplied = new Object.assign({}, styles.containerBaseStyle, containerStyle);
 
         let mainStyle = [unselectedStyleApplied];
         if (isChecked) mainStyle.push(selectedStyleApplied);
 
         return (
             <TouchableWithoutFeedback onPress={this.onPress}>
-                <View style={[styles.baseStyle, mainStyle]}>
-                    {this.renderImg()}
+                <View  style={containerStyleApplied}>
+                    <View style={[styles.checkboxStyleBase, mainStyle]}>
+                        {this.renderImg()}
+                    </View>
+                    { this.renderLabel()}
                 </View>
-                { this.renderLabel()}
             </TouchableWithoutFeedback>
         )
     }
 }
 
 const styles ={
-    baseStyle: {
+    containerBaseStyle: {
+        flexDirection: 'row',
+    },
+    labelStyleBase: {
+      fontSize: 14
+    },
+    checkboxStyleBase: {
         justifyContent: "center",
         alignItems: "center",
+        marginRight: 10
     },
     unselected: {
         width: 20,
