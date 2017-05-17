@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 import Checkbox from './checkbox/Checkbox';
+import external from './IMAG4067.jpg';
 
 export default class checkbox extends Component {
   render() {
@@ -27,7 +28,11 @@ export default class checkbox extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
-          <Checkbox />
+          <Checkbox
+          label="good"
+          actionCallback={alert}
+          externalImgUrl="https://s3-eu-west-1.amazonaws.com/sisu-resources/public/garden/company-logos/logos1x/de003.png"
+          />
       </View>
     );
   }

@@ -19,16 +19,17 @@ class Checkbox extends React.Component {
 
         this.setState(() => {return {isChecked: !isChecked}});
         if (actionCallback && actionCallback instanceof Function) actionCallback(!isChecked);
-    }
+    };
 
     renderImg = () => {
         const {isChecked} = this.state;
-        const {imageStyles} = this.props;
+        const {imageStyle, externalImgUrl, internalImgPath} = this.props;
 
-        const tick = this.props.img ? this.props.img : checkmark;
-        const imageStyleApplied = new Object.assign({}, styles.image, imageStyles);
+        const tick = internalImgPath ? internalImgPath : checkmark;
+        const imageStyleApplied = new Object.assign({}, styles.imageStyleBase, imageStyle);
 
-        if (isChecked) return <Image source={tick} style={imageStyleApplied} />
+        if (externalImgUrl && isChecked) return  <Image source={{uri: externalImgUrl}} style={imageStyleApplied} />;
+        if (isChecked) return <Image source={tick} style={imageStyleApplied} />;
 
         return null;
     }
@@ -51,8 +52,8 @@ class Checkbox extends React.Component {
         const {isChecked} = this.state;
         const {unselectedStyle, selectedStyle, containerStyle} = this.props;
 
-        const unselectedStyleApplied = new Object.assign({}, styles.unselected, unselectedStyle);
-        const selectedStyleApplied = new Object.assign({}, styles.selected, selectedStyle);
+        const unselectedStyleApplied = new Object.assign({}, styles.unselectedStyleBase, unselectedStyle);
+        const selectedStyleApplied = new Object.assign({}, styles.selectedStyleBase, selectedStyle);
         const containerStyleApplied = new Object.assign({}, styles.containerBaseStyle, containerStyle);
 
         let mainStyle = [unselectedStyleApplied];
@@ -83,7 +84,7 @@ const styles ={
         alignItems: "center",
         marginRight: 10
     },
-    unselected: {
+    unselectedStyleBase: {
         width: 20,
         height: 20,
         borderColor: '#939598',
@@ -91,13 +92,13 @@ const styles ={
         backgroundColor: "#ddd",
         borderRadius: 3,
     },
-    selected: {
+    selectedStyleBase: {
         backgroundColor: "#fff",
         borderColor: '#B9E2A6',
         width: 20,
         height: 20,
     },
-    image: {
+    imageStyleBase: {
         backgroundColor: "transparent",
         resizeMode: "contain",
         width: 10,
@@ -107,10 +108,14 @@ const styles ={
 
 Checkbox.propTypes = {
     isChecked: React.PropTypes.bool,
-    imageStyles: React.PropTypes.object,
+    imageStyle: React.PropTypes.object,
     img: React.PropTypes.string,
     unselectedStyle: React.PropTypes.object,
     selectedStyle: React.PropTypes.object,
+    externalImgUrl: React.PropTypes.string,
+    internalImgPath: React.PropTypes.string,
+    labelStyle: React.PropTypes.object,
+    containerStyle: React.PropTypes.object,
 };
 
 Checkbox.defaultProps = {
