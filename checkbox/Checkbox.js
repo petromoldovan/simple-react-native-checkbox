@@ -109,13 +109,13 @@ const styles ={
 Checkbox.propTypes = {
     isChecked: React.PropTypes.bool,
     imageStyle: React.PropTypes.object,
-    img: React.PropTypes.string,
+    internalImgPath: React.PropTypes.string,
+    externalImgUrl: React.PropTypes.string,
     unselectedStyle: React.PropTypes.object,
     selectedStyle: React.PropTypes.object,
-    externalImgUrl: React.PropTypes.string,
-    internalImgPath: React.PropTypes.string,
-    labelStyle: React.PropTypes.object,
     containerStyle: React.PropTypes.object,
+    label: React.PropTypes.string,
+    labelStyle: React.PropTypes.object,
 };
 
 Checkbox.defaultProps = {

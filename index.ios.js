@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 import Checkbox from './checkbox/Checkbox';
-import external from './IMAG4067.jpg';
+import external from './de003.png';
 
 
 export default class checkbox extends Component {
@@ -35,7 +35,6 @@ export default class checkbox extends Component {
               label="good day"
               labelStyle={{fontWeight: "900"}}
               internalImgPath={external}
-              externalImgUrl="https://s3-eu-west-1.amazonaws.com/sisu-resources/public/garden/company-logos/logos1x/de003.png"
           />
       </View>
     );
