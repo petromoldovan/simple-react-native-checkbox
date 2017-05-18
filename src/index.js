@@ -61,13 +61,13 @@ render() {
 
     return (
         <TouchableWithoutFeedback onPress={this.onPress}>
-<View  style={containerStyleApplied}>
-        <View style={[styles.checkboxStyleBase, mainStyle]}>
-    {this.renderImg()}
-</View>
-    { this.renderLabel()}
-</View>
-    </TouchableWithoutFeedback>
+            <View  style={containerStyleApplied}>
+                <View style={[styles.checkboxStyleBase, mainStyle]}>
+                    {this.renderImg()}
+                </View>
+                { this.renderLabel()}
+            </View>
+        </TouchableWithoutFeedback>
 )
 }
 }
