@@ -1,7 +1,7 @@
 {
-  "name": "react-native-simple-checkbox",
+  "name": "simple-react-native-checkbox",
   "version": "1.0.0",
-  "description": "react-native-simple-checkbox",
+  "description": "simple-react-native-checkbox",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -23,12 +23,12 @@
   "author": "petromoldovan <petro.moldovan@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "^15.5.4",
-    "react-native": "^0.44.0"
+    "react": "15.5.4",
+    "react-native": "0.44.0"
   },
   "devDependencies": {
-    "babel-preset-react-native": "^1.9.2",
-    "rimraf": "^2.6.1"
+    "babel-preset-react-native": "1.9.2",
+    "rimraf": "2.6.1"
   },
   "babel": {
     "presets": ["react-native"]
