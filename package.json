@@ -11,6 +11,10 @@
     "react-native",
     "checkbox"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petromoldovan/simple-react-native-checkbox.git"
+  },
   "files": [
     "assets",
     "dist",
